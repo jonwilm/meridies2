@@ -10,6 +10,7 @@
   @@include("partials/navbar.html")
   
   <main>
+    @@include("partials/home/hero.html")
     <br>
     <br>
     <br>
@@ -95,5 +96,15 @@
   @@include("partials/footer.html")
   @@include("partials/scripts.html")
   <script src="assets/libs/slick-slider/slick/slick.min.js"></script>
+  <script>
+    $(".slider-hero").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      focusOnSelect: false,
+      prevArrow: '<button type="button" class="slick-prev"><img src="assets/images/icons/arrow-left.svg"/></button>',
+      nextArrow: '<button type="button" class="slick-next"><img src="assets/images/icons/arrow-right.svg"/></button>',
+    });
+  </script>
 </body>
 </html>

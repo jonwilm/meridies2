@@ -14,12 +14,13 @@ html, body {
     font-size: 16px;
   }
   @media (min-width: 1920px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 main {
-  padding-top: 100px;
+  padding-top: 60px;
   @media (min-width: 992px) {
-    padding: 102px;
+    padding-top: 102px;
   }
 }
+

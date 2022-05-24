@@ -29,11 +29,13 @@ $(window).resize(function () {
   changeColorNavbar();
 });
 function changeColorNavbar() {
-  if ($(window).scrollTop() > 30) {
-    $(".navbar").css("background-color", "#e4002b");
-    $(".navbar-mobil").css("background-color", "#e4002b");
+  if ($(window).width() > 991.98) {
+    if ($(window).scrollTop() > 50) {
+      $(".navbar .navbar-brand img").css("height", "50px");
+    } else {
+      $(".navbar .navbar-brand img").css("height", "60px");
+    }
   } else {
-    $(".navbar").css("background-color", "transparent");
-    $(".navbar-mobil").css("background-color", "transparent");
+    $(".navbar .navbar-brand img").css("height", "40px");
   }
 }

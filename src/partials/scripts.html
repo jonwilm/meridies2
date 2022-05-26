@@ -13,3 +13,53 @@
   })
   wow.init();
 </script>
+<script>
+  $("#contact-form").submit(function(e){
+    
+    $("#img-loading").removeClass("d-none");
+    $("#img-loading").addClass("d-block");
+    $("#text-submit").attr("class", "d-none");
+    $("#submit").attr("disabled", "disabled");
+    e.preventDefault();
+    
+    let name = $("#name").val();
+    let mail = $("#mail").val();
+    let consulta = $("#consulta").val();
+    if (name.length == 0 && mail.length == 0 && consulta.length == 0) {
+      $(".alert").removeClass("d-block");
+      $(".alert").addClass("d-none");
+      $("#inputEmpty").addClass("d-block");
+      console.log('Todos los campos son requeridos');
+    }
+    
+    $.ajax({
+      url: "mail/contact-me.php",
+      type: "POST",
+      data: {
+        name: name,
+        mail: mail,
+        consulta: consulta,
+      },
+      success: function(data) {
+        $(".alert").removeClass("d-block");
+        $(".alert").addClass("d-none");
+        $("#text-submit").attr("class", "d-block");
+        $("#img-loading").addClass("d-none");
+        $("#img-loading").removeClass("d-block");
+        $("#submit").removeAttr("disabled");
+        $("#mailSuccess").addClass("d-block");
+        $("#contact-form").trigger("reset");
+      },
+      error: function() {
+        $(".alert").removeClass("d-block");
+        $(".alert").addClass("d-none");
+        $("#text-submit").attr("class", "d-inline-block");
+        $("#img-loading").addClass("d-none");
+        $("#img-loading").removeClass("d-inline-block");
+        $("#submit").removeAttr("disabled");
+        $("#mailError").addClass("d-block");
+        $("#contact-form").trigger("reset");
+      }
+    });
+  });
+</script>

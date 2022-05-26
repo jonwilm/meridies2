@@ -162,7 +162,7 @@
     }
     .carousel-control-next,
     .carousel-control-prev {
-      width: 5%;
+      width: 8%;
       background-color: rgba($color: #000000, $alpha: 0.5);
       &:focus {
         opacity: 0.5;
@@ -235,13 +235,37 @@
       }
     }
   }
-  a {
+}
+#historia {
+  background-color: $black;
+  color: $white;
+  .content-img {
+    position: relative;
+    height: 50vh;
+    .img-historia {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  @media (min-width: 768px) {
+    background-color: $bg-grey;
     color: $black;
-    border-color: $black;
-    @media (min-width: 768px) {
-      color: $white;
-      border-color: $white;
-      font-size: 1.5vw;
+    .content-img {
+      height: auto;
+      .img-historia {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
   }
 }

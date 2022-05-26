@@ -138,6 +138,12 @@ gulp.task("scss", function () {
     .pipe(gulp.dest(paths.dist.css.dir));
 });
 
+gulp.task('mail', function(callback) {
+  return gulp
+    .src('./src/mail/*.php')
+    .pipe(gulp.dest('./dist/mail/'))
+})
+
 gulp.task("fileinclude", function (callback) {
   return gulp
     .src([
@@ -229,7 +235,8 @@ gulp.task(
       "scss",
       "js",
       "jsPages",
-      "html"
+      "html",
+      "mail"
     )
   )
 );
@@ -247,7 +254,8 @@ gulp.task(
       "scss",
       "js",
       "jsPages",
-      "html"
+      "html",
+      "mail"
     ),
     gulp.parallel("browsersync", "watch")
   )

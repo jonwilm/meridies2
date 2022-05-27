@@ -44,9 +44,10 @@
         $(".alert").removeClass("d-block");
         $(".alert").addClass("d-none");
         $("#text-submit").attr("class", "d-block");
-        $("#img-loading").addClass("d-none");
         $("#img-loading").removeClass("d-block");
+        $("#img-loading").addClass("d-none");
         $("#submit").removeAttr("disabled");
+        $("#mailSuccess").removeClass("d-none");
         $("#mailSuccess").addClass("d-block");
         $("#contact-form").trigger("reset");
       },
@@ -57,6 +58,7 @@
         $("#img-loading").addClass("d-none");
         $("#img-loading").removeClass("d-inline-block");
         $("#submit").removeAttr("disabled");
+        $("#mailError").removeClass("d-none");
         $("#mailError").addClass("d-block");
         $("#contact-form").trigger("reset");
       }

@@ -42,4 +42,17 @@
       }
     }
   }
+  .nav-pills .nav-link {
+    border-radius: 0;
+  }
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: transparent;
+  }
+  .nav-pills .nav-link.active:before,
+  .nav-pills .show > .nav-link:before {
+    left: 1rem;
+    right: 1rem;
+  }
 }

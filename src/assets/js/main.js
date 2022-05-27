@@ -39,3 +39,16 @@ function changeColorNavbar() {
     $(".navbar .navbar-brand img").css("height", "40px");
   }
 }
+
+$('.nav-link').on('click', function() {
+  if ($(window).width() > 992) {
+    $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top - 92
+    }, 0)
+  } else {
+    $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top - 66
+    }, 0)
+  }
+  return false
+})

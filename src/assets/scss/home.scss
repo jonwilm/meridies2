@@ -38,6 +38,11 @@
 #hero {
   padding: 3rem 0;
   color: $white;
+  position: relative;
+  #ancla-hero {
+    position: absolute;
+    top: -92px
+  }
   h1, p {
     margin-bottom: 1.5rem;
   }
@@ -67,6 +72,11 @@
 #ubicacion {
   background-color: $bg-grey;
   padding: 3rem 0;
+  position: relative;
+  #ancla-ubicacion {
+    position: absolute;
+    top: -92px
+  }
   .content-img {
     height: calc(60vh + 1rem);
     display: flex;
@@ -111,6 +121,11 @@
 #entorno {
   background-color: $bg-grey;
   padding: 0 0 3rem 0;
+  position: relative;
+  #ancla-entorno {
+    position: absolute;
+    top: -92px
+  }
   .content-img {
     height: calc(60vh + 1rem);
     display: flex;
@@ -146,6 +161,10 @@
 }
 #slider-ambientes {
   position: relative;
+  #ancla-slider-ambientes {
+    position: absolute;
+    top: -92px
+  }
   #sliderAmbientesControls {
     height: 50vh;
     .carousel-inner {
@@ -198,6 +217,11 @@
 #plantas {
   padding: 3rem 0;
   background-color: $bg-grey;
+  position: relative;
+  #ancla-plantas {
+    position: absolute;
+    top: -92px
+  }
   @media (min-width: 768px) {
     background-color: $black;
     color: $white;
@@ -239,6 +263,11 @@
 #historia {
   background-color: $black;
   color: $white;
+  position: relative;
+  #ancla-historia {
+    position: absolute;
+    top: -92px
+  }
   .content-img {
     position: relative;
     height: 50vh;

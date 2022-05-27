@@ -52,6 +52,11 @@ strong {
 #contacto {
   background-color: $black;
   color: $white;
+  position: relative;
+  #ancla-contacto {
+    position: absolute;
+    top: -92px
+  }
   form {
     .form-control {
       color: white;

@@ -4,11 +4,8 @@ html, body {
   overflow-x: hidden;
   color: $black;
   background-color: $black;
-  font-size: 10px;
+  font-size: 12px;
   @media (min-width: 360px) {
-    font-size: 12px;
-  }
-  @media (min-width: 425px) {
     font-size: 14px;
   }
   @media (min-width: 768px) {
@@ -31,14 +28,17 @@ main {
 }
 @media (min-width: 992px) {
   h2 {
-    font-size: 3vw;
+    font-size: 2.5rem;
   }
   p {
-    font-size: 1.5vw;
+    font-size: 1rem;
   }
 }
 strong {
   font-weight: bold;
+}
+.container-custom {
+  padding: 0 4%;
 }
 .btn-custom {
   color: $black;
@@ -46,8 +46,11 @@ strong {
   @media (min-width: 768px) {
     color: $white;
     border-color: $white;
-    font-size: 1.5vw;
+    font-size: 1rem;
   }
+}
+.navbar-collapse {
+  transition: height .35s ease;
 }
 #contacto {
   background-color: $black;
@@ -72,10 +75,10 @@ strong {
     }
     @media (min-width: 992px) {
       .form-control {
-        font-size: 1.5vw;
+        font-size: 1rem;
       }
       label {
-        font-size: 1.5vw;
+        font-size: 1rem;
       }
     }
   }

@@ -2,9 +2,10 @@
 // NAVBAR
 // ------------------------------------------------------------
 $(window).ready(function () {
-  $(".navbar-toggler").click(function () {
-    $(".navbar").toggleClass("bg-red");
-  });
+  $('.navbar .nav-link').click(function() {
+    $('.navbar .navbar-toggler').click()
+  })
+
   changeColorNavbar();
 
   $(".btn-user").hover(

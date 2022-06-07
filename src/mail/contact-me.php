@@ -14,6 +14,7 @@
   $consulta = $_POST['consulta'];
 
   $to = 'pmpgarciatedesco@gmail.com';
+  // $to = 'jparedes84@gmail.com';
   $email_subject = "Contacto desde el Sitio Web - Meridies 2";
   $email_body  = '<p><strong>Has recibido un nuevo correo desde el sitio web Meridies 2.</strong></p>';
   $email_body .= '<p><strong>Nombre: </strong>' . $name . '</p>';

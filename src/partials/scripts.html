@@ -23,9 +23,16 @@
     $("#submit").attr("disabled", "disabled");
     e.preventDefault();
     
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6Lf5TFAgAAAAAKU2a45Zk9ykz3hpOygILSB1fLaE', {action: 'contact_form'}).then(function(token) {
+        $('#recaptcha_response').val(token);
+      });
+    });
+
     let name = $("#name").val();
     let mail = $("#mail").val();
     let consulta = $("#consulta").val();
+    let sendToken = $("#recaptcha_response").val();
     if (name.length == 0 && mail.length == 0 && consulta.length == 0) {
       $(".alert").removeClass("d-block");
       $(".alert").addClass("d-none");
@@ -33,43 +40,39 @@
       console.log('Todos los campos son requeridos');
     }
 
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6Lf5TFAgAAAAAKU2a45Zk9ykz3hpOygILSB1fLaE', {action: 'contact_form'}).then(function(token) {
-        
-        $.ajax({
-          url: "mail/contact-me.php",
-          type: "POST",
-          data: {
-            name: name,
-            mail: mail,
-            consulta: consulta,
-          },
-          success: function(data) {
-            $(".alert").removeClass("d-block");
-            $(".alert").addClass("d-none");
-            $("#text-submit").attr("class", "d-block");
-            $("#img-loading").removeClass("d-block");
-            $("#img-loading").addClass("d-none");
-            $("#submit").removeAttr("disabled");
-            $("#mailSuccess").removeClass("d-none");
-            $("#mailSuccess").addClass("d-block");
-            $("#contact-form").trigger("reset");
-          },
-          error: function() {
-            $(".alert").removeClass("d-block");
-            $(".alert").addClass("d-none");
-            $("#text-submit").attr("class", "d-inline-block");
-            $("#img-loading").addClass("d-none");
-            $("#img-loading").removeClass("d-inline-block");
-            $("#submit").removeAttr("disabled");
-            $("#mailError").removeClass("d-none");
-            $("#mailError").addClass("d-block");
-            $("#contact-form").trigger("reset");
-          }
-        });
-        
-      });;
+    $.ajax({
+      url: "mail/contact-me.php",
+      type: "POST",
+      data: {
+        name: name,
+        mail: mail,
+        consulta: consulta,
+        sendToken: sendToken,
+        action: 'contact_form',
+      },
+      success: function(data) {
+        $(".alert").removeClass("d-block");
+        $(".alert").addClass("d-none");
+        $("#text-submit").attr("class", "d-block");
+        $("#img-loading").removeClass("d-block");
+        $("#img-loading").addClass("d-none");
+        $("#submit").removeAttr("disabled");
+        $("#mailSuccess").removeClass("d-none");
+        $("#mailSuccess").addClass("d-block");
+        $("#contact-form").trigger("reset");
+      },
+      error: function() {
+        $(".alert").removeClass("d-block");
+        $(".alert").addClass("d-none");
+        $("#text-submit").attr("class", "d-inline-block");
+        $("#img-loading").addClass("d-none");
+        $("#img-loading").removeClass("d-inline-block");
+        $("#submit").removeAttr("disabled");
+        $("#mailError").removeClass("d-none");
+        $("#mailError").addClass("d-block");
+        $("#contact-form").trigger("reset");
+      }
     });
-
-  });
+    
+  });;
 </script>
